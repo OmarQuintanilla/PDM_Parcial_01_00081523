@@ -1,50 +1,48 @@
 package com.example.orderup
 
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.orderup.ui.theme.pantallas.MenuPantalla
+import com.example.orderup.ui.theme.pantallas.OrdenPantalla
 import com.example.orderup.ui.theme.OrderUpTheme
+import com.example.orderup.vistas.VistaOrdenes
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             OrderUpTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                OrderUpApp()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+fun OrderUpApp() {
+    val navController = rememberNavController()
+    // El ViewModel se instancia aquí para compartir el estado entre pantallas
+    val orderViewModel: VistaOrdenes = viewModel()
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    OrderUpTheme {
-        Greeting("Android")
+    NavHost(navController = navController, startDestination = "menu") {
+        composable("menu") {
+            MenuPantalla(
+                viewModel = orderViewModel,
+                onNavigateToOrder = { navController.navigate("order") }
+            )
+        }
+        composable("order") {
+            OrdenPantalla(
+                viewModel = orderViewModel,
+                onNavigateBack = { navController.popBackStack() }
+            )
+        }
     }
 }
-val navController = rememberNavController()
-navHost

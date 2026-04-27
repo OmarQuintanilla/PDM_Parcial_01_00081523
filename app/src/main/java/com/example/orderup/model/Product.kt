@@ -1,5 +1,16 @@
-package com.example.orderup
+package com.example.orderup.model
 
+data class Product(
+    val id: Int,
+    val nombre: String,
+    val precio: Double,
+    val imagenUrl: String,
+    val tipo: TipoProducto
+)
+enum class TipoProducto {
+    PUPUSA,
+    BEBIDA
+}
 val pupusaImg = "https://comedera.com/wp-content/uploads/sites/9/2023/05/Pupusas-de-quesoshutterstock_1803502444.jpg"
 val cafeImg = "https://i.blogs.es/139e0f/cafe-americano2/840_560.jpeg"
 val chocoImg = "https://cocinaconcoqui.com/wp-content/uploads/2025/12/chocolate-calientecasero-500x500.jpg"
