@@ -8,7 +8,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import com.example.orderup.model.menu
 import com.example.orderup.ui.theme.componentes.ProductCard
 @OptIn(ExperimentalMaterial3Api::class)

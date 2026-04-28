@@ -11,7 +11,6 @@ import coil.compose.AsyncImage
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.orderup.model.Product
-import org.jetbrains.annotations.Async
 
 @Composable
 fun ProductCard(
@@ -20,7 +19,6 @@ fun ProductCard(
     onClick: () -> Unit
 ) {
     Card(
-        // El contenedor completo es clickeable para agregar a la orden
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)

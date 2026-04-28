@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModel
 import com.example.orderup.model.Product
 
 class VistaOrdenes : ViewModel() {
-    // Mapa para mantener el producto y su cantidad
     private val _orderItems = mutableStateMapOf<Product, Int>()
     val orderItems: Map<Product, Int> get() = _orderItems
 

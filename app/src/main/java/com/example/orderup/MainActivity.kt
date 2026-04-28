@@ -28,7 +28,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun OrderUpApp() {
     val navController = rememberNavController()
-    // El ViewModel se instancia aquí para compartir el estado entre pantallas
     val orderViewModel: VistaOrdenes = viewModel()
 
     NavHost(navController = navController, startDestination = "menu") {
