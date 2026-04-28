@@ -7,7 +7,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontLoadingStrategy.Companion.Async
+import coil.compose.AsyncImage
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.orderup.model.Product
@@ -31,7 +31,7 @@ fun ProductCard(
             modifier = Modifier.padding(8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Async(
+            AsyncImage(
                 model = producto.imagenUrl,
                 contentDescription = producto.nombre,
                 modifier = Modifier.size(64.dp)
